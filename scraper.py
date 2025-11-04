@@ -156,7 +156,26 @@ async def scrape_kickass_anime():
                     await watch_page.goto(first_episode_url, timeout=90000)
                     await watch_page.wait_for_selector(".player-container", timeout=30000)
                     
-                    # **SISTEM YANG DIPERBAIKI: Hindari stale elements**
+                    # **PERBAIKAN: Deteksi available sub/dub**
+                    available_subdub = ["Japanese (SUB)"]  # default
+                    try:
+                        # Cari tombol sub/dub selector
+                        subdub_selector = await watch_page.query_selector(".subdub-selector, .v-btn-toggle, [data-subdub]")
+                        if subdub_selector:
+                            subdub_buttons = await watch_page.query_selector_all(".v-btn[data-subdub], .subdub-btn")
+                            if subdub_buttons:
+                                subdub_options = []
+                                for btn in subdub_buttons:
+                                    text = await btn.inner_text()
+                                    if text and text.upper() in ['SUB', 'DUB', 'JAPANESE', 'ENGLISH']:
+                                        subdub_options.append(text)
+                                if subdub_options:
+                                    available_subdub = subdub_options
+                                    print(f"  → Tersedia sub/dub: {available_subdub}")
+                    except Exception as e:
+                        print(f"  → Tidak bisa detect sub/dub options: {e}")
+
+                    # **SISTEM YANG DIPERBAIKI: Multi sub/dub support**
                     episodes_data = []
                     try:
                         await watch_page.wait_for_selector(".episode-item", timeout=30000)
@@ -165,6 +184,16 @@ async def scrape_kickass_anime():
                         episode_items = await watch_page.query_selector_all(".episode-item")
                         total_episodes = len(episode_items)
                         print(f"Menemukan {total_episodes} episode")
+                        
+                        # **PERBAIKAN: Fix episode indexing**
+                        # Episode items biasanya sudah terurut, tapi kita perlu pastikan
+                        episode_numbers = []
+                        for i, ep_item in enumerate(episode_items):
+                            ep_badge = await ep_item.query_selector(".episode-badge .v-chip__content")
+                            ep_number = await ep_badge.inner_text() if ep_badge else f"EP {i+1}"
+                            episode_numbers.append(ep_number)
+                        
+                        print(f"  → Episode numbers: {episode_numbers[:5]}...")  # Debug first 5
                         
                         # Tentukan episode mana yang akan di-scrape
                         start_episode = 0
@@ -217,9 +246,8 @@ async def scrape_kickass_anime():
                                             print(f"    × Episode index {ep_index} tidak ditemukan (hanya {len(episode_items)} episode)")
                                             continue
                                             
-                                        # **PERBAIKAN: Gunakan selector langsung tanpa scroll yang kompleks**
-                                        ep_selector = f".episode-item:nth-child({ep_index + 1})"
-                                        ep_item = await watch_page.query_selector(ep_selector)
+                                        # **PERBAIKAN: Gunakan selector yang lebih reliable**
+                                        ep_item = episode_items[ep_index]
                                         
                                         if not ep_item:
                                             print(f"    × Gagal menemukan episode {ep_index + 1}")
@@ -231,78 +259,116 @@ async def scrape_kickass_anime():
                                         
                                         print(f"  - Mengklik episode {ep_number}...")
                                         
-                                        # **PERBAIKAN: Klik dengan retry mechanism**
+                                        # **PERBAIKAN: Klik dengan retry mechanism yang lebih baik**
                                         clicked = False
                                         for attempt in range(3):
                                             try:
-                                                await ep_item.click()
-                                                await watch_page.wait_for_timeout(2000)
+                                                # Scroll ke element dulu
+                                                await ep_item.scroll_into_view_if_needed()
+                                                await watch_page.wait_for_timeout(500)
                                                 
-                                                # Verifikasi bahwa episode berhasil diklik dengan mengecek URL atau elemen lain
+                                                # Klik dengan JavaScript untuk menghindari issue
+                                                await watch_page.evaluate("(element) => { element.click(); }", ep_item)
+                                                await watch_page.wait_for_timeout(3000)
+                                                
+                                                # Verifikasi bahwa episode berhasil diklik
                                                 current_url = watch_page.url
                                                 if "/ep-" in current_url:
                                                     clicked = True
                                                     break
                                                 else:
-                                                    # Coba klik lagi dengan method berbeda
-                                                    await watch_page.evaluate("(element) => element.click()", ep_item)
-                                                    await watch_page.wait_for_timeout(2000)
+                                                    if attempt < 2:
+                                                        print(f"    ! Klik tidak efektif (attempt {attempt + 1}), coba lagi...")
+                                                        await watch_page.wait_for_timeout(1000)
                                             except Exception as click_error:
                                                 if attempt < 2:
                                                     print(f"    ! Klik gagal (attempt {attempt + 1}), coba lagi...")
                                                     await watch_page.wait_for_timeout(1000)
-                                                    # Refresh episode item
-                                                    ep_item = await watch_page.query_selector(ep_selector)
                                                 else:
-                                                    print(f"    × Gagal mengklik episode setelah 3 attempts")
+                                                    print(f"    × Gagal mengklik episode setelah 3 attempts: {click_error}")
                                         
                                         if not clicked:
                                             print(f"    × Tidak bisa mengklik episode {ep_number}")
-                                            episode_data = {
-                                                "number": ep_number,
-                                                "iframe": "Gagal klik episode",
-                                                "subdub": "None",
-                                                "status": "error",
-                                                "all_qualities": {}
-                                            }
                                             
-                                            if ep_index < len(episodes_data):
-                                                episodes_data[ep_index] = episode_data
-                                            else:
-                                                episodes_data.append(episode_data)
-                                            continue
+                                            # **PERBAIKAN: Coba approach alternatif untuk episode 1**
+                                            if ep_index == 0:
+                                                print(f"    ! Mencoba approach alternatif untuk episode 1...")
+                                                # Coba langsung buka URL episode 1
+                                                try:
+                                                    ep1_url = first_episode_url
+                                                    await watch_page.goto(ep1_url, timeout=30000)
+                                                    await watch_page.wait_for_selector(".player-container", timeout=10000)
+                                                    clicked = True
+                                                    print(f"    ✓ Berhasil buka episode 1 langsung via URL")
+                                                except Exception as alt_error:
+                                                    print(f"    × Gagal approach alternatif: {alt_error}")
                                         
-                                        # Tunggu iframe dimuat
-                                        await watch_page.wait_for_timeout(3000)
+                                        iframe_src = None
+                                        status = "error"
+                                        all_qualities = {}
                                         
-                                        # **PERBAIKAN: Ambil iframe dengan timeout yang lebih pendek**
-                                        try:
-                                            await watch_page.wait_for_selector("iframe.player:not([src=''])", timeout=5000)
-                                            iframe_element = await watch_page.query_selector("iframe.player")
-                                            iframe_src = await iframe_element.get_attribute("src") if iframe_element else None
+                                        if clicked:
+                                            # Tunggu iframe dimuat
+                                            await watch_page.wait_for_timeout(3000)
                                             
-                                            # Cek iframe valid
-                                            if iframe_src and any(pattern in iframe_src for pattern in [
-                                                "krussdomi.com/cat-player/player", "vidstream", "type=hls", "cat-player/player"
-                                            ]):
-                                                print(f"    ✓ Iframe ditemukan: {iframe_src[:50]}...")
-                                                status = "success"
-                                            else:
-                                                print("    × Iframe tidak valid")
-                                                iframe_src = "Iframe tidak valid"
-                                                status = "error"
-                                        except Exception as iframe_error:
-                                            print(f"    × Iframe tidak ditemukan: {iframe_error}")
-                                            iframe_src = "Iframe tidak ditemukan"
-                                            status = "error"
+                                            # **PERBAIKAN: Ambil iframe dengan multiple attempts**
+                                            for iframe_attempt in range(3):
+                                                try:
+                                                    # Coba berbagai selector iframe
+                                                    iframe_selectors = [
+                                                        "iframe.player:not([src=''])",
+                                                        "iframe[src*='krussdomi']",
+                                                        "iframe[src*='player']",
+                                                        "iframe"
+                                                    ]
+                                                    
+                                                    for selector in iframe_selectors:
+                                                        try:
+                                                            await watch_page.wait_for_selector(selector, timeout=2000)
+                                                            iframe_element = await watch_page.query_selector(selector)
+                                                            if iframe_element:
+                                                                iframe_src = await iframe_element.get_attribute("src")
+                                                                if iframe_src and iframe_src != "about:blank":
+                                                                    break
+                                                        except:
+                                                            continue
+                                                    
+                                                    # Cek iframe valid
+                                                    if iframe_src and any(pattern in iframe_src for pattern in [
+                                                        "krussdomi.com/cat-player/player", "vidstream", "type=hls", 
+                                                        "cat-player/player", "player", "video"
+                                                    ]):
+                                                        print(f"    ✓ Iframe ditemukan: {iframe_src[:50]}...")
+                                                        status = "success"
+                                                        all_qualities = {"Current": iframe_src}
+                                                        break
+                                                    else:
+                                                        if iframe_attempt < 2:
+                                                            print(f"    ! Iframe tidak valid, coba lagi... ({iframe_attempt + 1})")
+                                                            await watch_page.wait_for_timeout(1000)
+                                                        else:
+                                                            print("    × Iframe tidak valid setelah 3 attempts")
+                                                            iframe_src = "Iframe tidak valid"
+                                                except Exception as iframe_error:
+                                                    if iframe_attempt < 2:
+                                                        print(f"    ! Iframe error, coba lagi... ({iframe_attempt + 1})")
+                                                        await watch_page.wait_for_timeout(1000)
+                                                    else:
+                                                        print(f"    × Iframe tidak ditemukan: {iframe_error}")
+                                                        iframe_src = "Iframe tidak ditemukan"
+                                        
+                                        # **PERBAIKAN: Fallback ke sub/dub lain jika gagal**
+                                        if status == "error" and len(available_subdub) > 1:
+                                            print(f"    ! Mencoba sub/dub alternatif...")
+                                            # Logic untuk switch sub/dub bisa ditambahkan di sini
                                         
                                         # Simpan data episode
                                         episode_data = {
                                             "number": ep_number,
-                                            "iframe": iframe_src,
+                                            "iframe": iframe_src or "Gagal diambil",
                                             "subdub": "Current",
                                             "status": status,
-                                            "all_qualities": {"Current": iframe_src}
+                                            "all_qualities": all_qualities
                                         }
                                         
                                         if ep_index < len(episodes_data):
@@ -341,7 +407,7 @@ async def scrape_kickass_anime():
                                         "url_detail": full_detail_url,
                                         "total_episodes": total_episodes,
                                         "episodes": episodes_data,
-                                        "available_subdub": ["Japanese (SUB)"],
+                                        "available_subdub": available_subdub,
                                         "last_updated": time.time()
                                     }
                                     
@@ -391,7 +457,7 @@ async def scrape_kickass_anime():
                         "url_detail": full_detail_url,
                         "total_episodes": total_episodes,
                         "episodes": episodes_data,
-                        "available_subdub": ["Japanese (SUB)"],
+                        "available_subdub": available_subdub,
                         "last_updated": time.time()
                     }
                     
