@@ -371,6 +371,48 @@ async def scrape_kickass_anime():
                                 "all_subdub": {}
                             }
 
+                    # **FUNGSI BARU: Mengklik episode dengan retry mechanism**
+                    async def click_episode_with_retry(watch_page, ep_index, max_retries=3):
+                        """Mengklik episode dengan retry mechanism untuk menghindari stale elements"""
+                        for attempt in range(max_retries):
+                            try:
+                                # Dapatkan ulang daftar episode items setiap kali
+                                episode_items = await watch_page.query_selector_all(".episode-item")
+                                
+                                if ep_index >= len(episode_items):
+                                    print(f"    × Episode index {ep_index} tidak ditemukan (hanya {len(episode_items)} episode)")
+                                    return None, None
+                                
+                                ep_item = episode_items[ep_index]
+                                
+                                # Scroll ke element untuk memastikan visible
+                                await ep_item.scroll_into_view_if_needed()
+                                await watch_page.wait_for_timeout(500)
+                                
+                                ep_badge = await ep_item.query_selector(".episode-badge .v-chip__content")
+                                ep_number = await ep_badge.inner_text() if ep_badge else f"EP {ep_index + 1}"
+                                
+                                print(f"  - Mengklik episode {ep_number} (attempt {attempt + 1})...")
+                                
+                                # Coba klik dengan berbagai method
+                                try:
+                                    await ep_item.click()
+                                except:
+                                    # Fallback: gunakan JavaScript click
+                                    await watch_page.evaluate("(element) => element.click()", ep_item)
+                                
+                                await watch_page.wait_for_timeout(3000)
+                                return ep_item, ep_number
+                                
+                            except Exception as e:
+                                print(f"    ! Gagal klik episode (attempt {attempt + 1}): {e}")
+                                if attempt < max_retries - 1:
+                                    await watch_page.wait_for_timeout(1000)
+                                else:
+                                    return None, None
+                        
+                        return None, None
+
                     # **SISTEM CICIL YANG DIPERBAIKI - TANPA BATASAN 5 EPISODE**
                     episodes_data = []
                     try:
@@ -429,22 +471,24 @@ async def scrape_kickass_anime():
                                     try:
                                         print(f"\n  --- Memproses Episode {ep_index + 1} ---")
                                         
-                                        # Refresh daftar episode items setiap batch untuk menghindari stale elements
-                                        if ep_index == batch_start:
-                                            episode_items = await watch_page.query_selector_all(".episode-item")
+                                        # Gunakan fungsi klik yang diperbaiki dengan retry mechanism
+                                        ep_item, ep_number = await click_episode_with_retry(watch_page, ep_index)
                                         
-                                        if ep_index >= len(episode_items):
-                                            break
-                                            
-                                        ep_item = episode_items[ep_index]
-                                        
-                                        ep_badge = await ep_item.query_selector(".episode-badge .v-chip__content")
-                                        ep_number = await ep_badge.inner_text() if ep_badge else f"EP {ep_index + 1}"
-                                        
-                                        print(f"  - Mengklik episode {ep_number}...")
-                                        
-                                        await ep_item.click()
-                                        await watch_page.wait_for_timeout(3000)
+                                        if not ep_item:
+                                            print(f"    × Gagal mengklik episode {ep_index + 1}, skip...")
+                                            # Tambahkan data error
+                                            episode_data = {
+                                                "number": f"EP {ep_index + 1}",
+                                                "iframe": "Gagal klik episode",
+                                                "subdub": "None",
+                                                "status": "error",
+                                                "all_qualities": {}
+                                            }
+                                            if ep_index < len(episodes_data):
+                                                episodes_data[ep_index] = episode_data
+                                            else:
+                                                episodes_data.append(episode_data)
+                                            continue
                                         
                                         # Gunakan fungsi yang diperbaiki untuk mendapatkan iframe
                                         ep_iframe_info = await get_episode_iframes_improved(watch_page, ep_number)
