@@ -390,7 +390,7 @@
         ],
         "poster": "https://kickass-anime.ru/image/poster/tales-of-herding-gods-9319-hq.webp",
         "url_detail": "https://kickass-anime.ru/tales-of-herding-gods-52c7",
-        "total_episodes": 55,
+        "total_episodes": 40,
         "episodes": [
             {
                 "number": "EP 01",
@@ -571,13 +571,113 @@
                 "all_qualities": {
                     "Current": "https://krussdomi.com/cat-player/player?id=MDYwMmYzNzc2ZGJhNGIwNmE5MDYxMDVjZWZhYjkzMGY6ODc5MDhhNDRkYjA4NDYxY2M0NGI3NTQ2NDU5YzEzMGM&type=hls"
                 }
+            },
+            {
+                "number": "EP 21",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 22",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 23",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 24",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 25",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 26",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 27",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 28",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 29",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
+            },
+            {
+                "number": "EP 30",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
+                }
             }
         ],
         "available_subdub": [
             "Chinese (DUB)"
         ],
         "optimal_subdub": "Chinese (DUB)",
-        "last_updated": 1762281223.7510386
+        "last_updated": 1762290275.1557722,
+        "available_pages": [
+            "Home",
+            "Trending",
+            "Schedule",
+            "Anime",
+            "Popular Shows",
+            "Random",
+            "Chinese (DUB)",
+            "01-55"
+        ]
     },
     {
         "title": "Witch Watch",
@@ -604,7 +704,7 @@
         ],
         "poster": "https://kickass-anime.ru/image/poster/witch-watch-a628-hq.webp",
         "url_detail": "https://kickass-anime.ru/witch-watch-ec46",
-        "total_episodes": 24,
+        "total_episodes": 50,
         "episodes": [
             {
                 "number": "EP 01",
@@ -785,6 +885,42 @@
                 "all_qualities": {
                     "Current": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP"
                 }
+            },
+            {
+                "number": "EP 21",
+                "iframe": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 22",
+                "iframe": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 23",
+                "iframe": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 24",
+                "iframe": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=69091aa1ab00ea32671316be&source=vidstream&ln=ja-JP"
+                }
             }
         ],
         "available_subdub": [
@@ -792,7 +928,19 @@
             "English (DUB)"
         ],
         "optimal_subdub": "Japanese (SUB)",
-        "last_updated": 1762281297.3124688
+        "last_updated": 1762290312.7174354,
+        "available_pages": [
+            "Home",
+            "Trending",
+            "Schedule",
+            "Anime",
+            "Popular Shows",
+            "Random",
+            "Japanese (SUB)",
+            "Español (España)",
+            "English (DUB)",
+            "01-24"
+        ]
     },
     {
         "title": "My Status as an Assassin Obviously Exceeds the Hero's",
@@ -1507,7 +1655,7 @@
         ],
         "poster": "https://kickass-anime.ru/image/poster/one-piece-2056-hq.webp",
         "url_detail": "https://kickass-anime.ru/one-piece-0948",
-        "total_episodes": 100,
+        "total_episodes": 95,
         "episodes": [
             {
                 "number": "EP 01",
@@ -1688,6 +1836,96 @@
                 "all_qualities": {
                     "Current": "https://krussdomi.com/cat-player/player?id=NDFhMmQyY2ZjNDgxNDg3NWUzNjk2ZTUzMzgyNjAzZGU6YTE0ZTlhNGNjYzY5MWZlOWE2M2I0YjY0OGQ2ZTViMmE&type=hls"
                 }
+            },
+            {
+                "number": "EP 21",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 22",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 23",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 24",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 25",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 26",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 27",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 28",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 29",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
+            },
+            {
+                "number": "EP 30",
+                "iframe": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=Mzk4ODViMzkxZjg4ODRlMmQyZTVkZTczMWE5MzMzZjI6NDYwNzVlMDlhYTkxZjM0ZjFiYmM2ZTQzYTQ1ZTYzNTQ&type=hls"
+                }
             }
         ],
         "available_subdub": [
@@ -1695,7 +1933,28 @@
             "English (DUB)"
         ],
         "optimal_subdub": "Japanese (SUB)",
-        "last_updated": 1762281373.0615127
+        "last_updated": 1762290392.1672757,
+        "available_pages": [
+            "Home",
+            "Trending",
+            "Schedule",
+            "Anime",
+            "Popular Shows",
+            "Random",
+            "Japanese (SUB)",
+            "English (DUB)",
+            "01-100",
+            "101-200",
+            "201-300",
+            "301-400",
+            "401-501",
+            "502-603",
+            "604-703",
+            "704-803",
+            "804-903",
+            "904-1003",
+            "1004-1061"
+        ]
     },
     {
         "title": "One-Punch Man Season 3",
