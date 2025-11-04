@@ -1,8 +1,7 @@
 import asyncio
 from playwright.async_api import async_playwright
 import json
-from urllib.parse import urljoin, urlparse, parse_qs, urlencode
-import re
+from urllib.parse import urljoin
 import os
 import time
 
@@ -88,11 +87,7 @@ async def scrape_kickass_anime():
                             existing_anime = anime
                             print(f"Anime sudah ada di data existing: {anime.get('title', 'Unknown')}")
                             
-                            total_existing_episodes = len(anime.get('episodes', []))
-                            last_scraped_time = anime.get('last_updated', 0)
-                            current_time = time.time()
-                            
-                            # **PERBAIKAN: Tentukan apakah perlu update berdasarkan progress**
+                            total_existing_episodes = len([ep for ep in anime.get('episodes', []) if ep.get('status') in ['success', 'pending']])
                             total_expected_episodes = anime.get('total_episodes', 0)
                             
                             # Selalu update jika ada episode error atau belum selesai
@@ -159,23 +154,13 @@ async def scrape_kickass_anime():
                     await watch_page.goto(first_episode_url, timeout=90000)
                     await watch_page.wait_for_selector(".player-container", timeout=30000)
                     
-                    # **PERBAIKAN: Deteksi sub/dub yang tersedia**
+                    # **PERBAIKAN: Deteksi sub/dub yang tersedia dengan selector yang tepat**
                     available_subdub = []
                     optimal_subdub = None
                     
                     try:
-                        # Cari dropdown sub/dub
-                        subdub_selectors = [
-                            ".v-select:has(.v-label:has-text('Sub/Dub'))",
-                            ".v-select .v-select__selection.v-select__selection--comma",
-                            "[aria-label*='Sub/Dub']"
-                        ]
-                        
-                        subdub_dropdown = None
-                        for selector in subdub_selectors:
-                            subdub_dropdown = await watch_page.query_selector(selector)
-                            if subdub_dropdown:
-                                break
+                        # Cari dropdown sub/dub dengan selector yang tepat
+                        subdub_dropdown = await watch_page.query_selector(".v-select:has(.v-label:has-text('Sub/Dub'))")
                         
                         if subdub_dropdown:
                             # Dapatkan sub/dub saat ini
@@ -189,21 +174,12 @@ async def scrape_kickass_anime():
                             await subdub_dropdown.click()
                             await watch_page.wait_for_timeout(1000)
                             
-                            # Ambil hanya opsi yang berisi bahasa (SUB/DUB)
-                            all_options = await watch_page.query_selector_all(".v-list-item .v-list-item__title")
-                            for option in all_options:
+                            # Ambil semua opsi dari dropdown sub/dub
+                            subdub_options = await watch_page.query_selector_all(".v-list-item .v-list-item__title")
+                            for option in subdub_options:
                                 option_text = await option.inner_text()
-                                # Filter hanya yang mengandung kata kunci bahasa
-                                if any(keyword in option_text.lower() for keyword in ['sub', 'dub', 'japanese', 'english', 'spanish', 'chinese', 'french', 'german']):
+                                if option_text and option_text.strip():
                                     available_subdub.append(option_text)
-                            
-                            # Jika tidak ada yang terdeteksi, gunakan semua opsi kecuali menu navigasi
-                            if not available_subdub:
-                                for option in all_options:
-                                    option_text = await option.inner_text()
-                                    # Exclude menu navigasi
-                                    if option_text not in ['Home', 'Trending', 'Schedule', 'Anime', 'Popular Shows', 'Random', '']:
-                                        available_subdub.append(option_text)
                             
                             print(f"  → Tersedia sub/dub: {available_subdub}")
                             
@@ -219,24 +195,14 @@ async def scrape_kickass_anime():
                         available_subdub = ["Japanese (SUB)", "English (DUB)"]
                         optimal_subdub = "Japanese (SUB)"
 
-                    # **LOGIKA BARU: Deteksi page selector dan auto-page switching**
+                    # **PERBAIKAN: Deteksi page selector dengan selector yang tepat**
                     available_pages = []
-                    current_page = "01-05"
-                    episodes_per_page = 5  # Default assumption
+                    current_page = "01-100"
+                    episodes_per_page = 100  # Default untuk format 01-100
                     
                     try:
-                        # Cari dropdown page
-                        page_selectors = [
-                            ".v-select:has(.v-label:has-text('Page'))",
-                            ".v-select .v-select__selection.v-select__selection--comma",
-                            "[aria-label*='Page']"
-                        ]
-                        
-                        page_dropdown = None
-                        for selector in page_selectors:
-                            page_dropdown = await watch_page.query_selector(selector)
-                            if page_dropdown:
-                                break
+                        # Cari dropdown page dengan selector yang tepat
+                        page_dropdown = await watch_page.query_selector(".v-select:has(.v-label:has-text('Page'))")
                         
                         if page_dropdown:
                             # Dapatkan page saat ini
@@ -258,44 +224,75 @@ async def scrape_kickass_anime():
                             
                             print(f"  → Tersedia pages: {available_pages}")
                             
+                            # **PERBAIKAN: Filter hanya page yang berisi episode (format angka)**
+                            filtered_pages = []
+                            for page in available_pages:
+                                # Hanya ambil yang berformat: 01-100, 101-200, dll atau angka tunggal
+                                if ('-' in page and page.replace('-', '').replace(' ', '').isdigit()) or page.isdigit():
+                                    filtered_pages.append(page)
+                            
+                            available_pages = filtered_pages
+                            print(f"  → Pages episode setelah filter: {available_pages}")
+                            
+                            # Hitung total episodes berdasarkan page terakhir
+                            if available_pages:
+                                last_page = available_pages[-1]
+                                if '-' in last_page:
+                                    try:
+                                        start_ep, end_ep = last_page.split('-')
+                                        total_episodes = int(end_ep)
+                                        print(f"  → Total episodes: {total_episodes}")
+                                    except:
+                                        total_episodes = len(available_pages) * episodes_per_page
+                                        print(f"  → Estimated total episodes: {total_episodes}")
+                                else:
+                                    total_episodes = int(last_page)
+                                    print(f"  → Total episodes: {total_episodes}")
+                            else:
+                                total_episodes = episodes_per_page
+                                print(f"  → Single page, estimated episodes: {total_episodes}")
+                            
                             # Tutup dropdown
                             await watch_page.keyboard.press("Escape")
                             await watch_page.wait_for_timeout(500)
-                            
-                            # **Tentukan episodes_per_page berdasarkan format page**
-                            if available_pages:
-                                # Analisis format page untuk menentukan episodes per page
-                                first_page = available_pages[0]
-                                if '-' in first_page:
-                                    try:
-                                        start_ep, end_ep = first_page.split('-')
-                                        episodes_per_page = int(end_ep) - int(start_ep) + 1
-                                        print(f"  → Episodes per page: {episodes_per_page}")
-                                    except:
-                                        episodes_per_page = 5
-                                        print(f"  → Default episodes per page: {episodes_per_page}")
                         else:
                             print("  → Dropdown page tidak ditemukan, single page")
+                            total_episodes = 5  # Default untuk single page
                     except Exception as e:
                         print(f"  → Error detect page: {e}")
+                        total_episodes = 5
 
-                    # **SISTEM YANG DIPERBAIKI: Multi-page scraping dengan optimal sub/dub**
+                    # **PERBAIKAN: Sistem scraping episode yang lebih sederhana dan efektif**
                     episodes_data = existing_anime.get('episodes', []) if existing_anime else []
                     optimal_subdub_found = False
                     total_scraped_in_this_run = 0
-                    max_episodes_per_run = 10
+                    max_episodes_per_run = 5  # Batasi untuk testing
 
-                    # **LOGIKA MULTI-PAGE: Loop melalui semua pages**
-                    for page_index, target_page in enumerate(available_pages if available_pages else [current_page]):
+                    # **LOGIKA MULTI-PAGE YANG DIPERBAIKI**
+                    if not available_pages:
+                        available_pages = [current_page]
+
+                    print(f"\n  🚀 Memulai scraping {len(available_pages)} pages...")
+
+                    for page_index, target_page in enumerate(available_pages):
                         print(f"\n  📄 Memproses Page: {target_page}")
                         
                         # **Ganti page jika diperlukan**
-                        if available_pages and current_page != target_page:
+                        if len(available_pages) > 1 and current_page != target_page:
                             print(f"  → Mengganti ke page: {target_page}")
                             try:
                                 await page_dropdown.click()
                                 await watch_page.wait_for_timeout(1000)
-                                page_option = await watch_page.query_selector(f".v-list-item .v-list-item__title:has-text('{target_page}')")
+                                
+                                # Cari dan klik page yang diinginkan
+                                page_option = None
+                                all_options = await watch_page.query_selector_all(".v-list-item .v-list-item__title")
+                                for option in all_options:
+                                    option_text = await option.inner_text()
+                                    if option_text == target_page:
+                                        page_option = option
+                                        break
+                                
                                 if page_option:
                                     await page_option.click()
                                     await watch_page.wait_for_timeout(3000)
@@ -308,31 +305,42 @@ async def scrape_kickass_anime():
                                 print(f"  ! Gagal ganti page: {page_error}")
                                 continue
 
-                        # **Dapatkan episode di page saat ini**
-                        await watch_page.wait_for_selector(".episode-item", timeout=10000)
+                        # **Tunggu dan dapatkan episode items**
+                        try:
+                            await watch_page.wait_for_selector(".episode-item", timeout=15000)
+                        except Exception as e:
+                            print(f"  ! Timeout menunggu episode items: {e}")
+                            continue
+
                         episode_items = await watch_page.query_selector_all(".episode-item")
                         episodes_in_current_page = len(episode_items)
                         
                         print(f"  → Found {episodes_in_current_page} episodes in page {current_page}")
 
-                        # **Hitung start dan end episode untuk page ini**
-                        page_start_episode = page_index * episodes_per_page
-                        page_end_episode = page_start_episode + episodes_in_current_page
+                        # **Hitung range episode untuk page ini**
+                        if '-' in target_page:
+                            try:
+                                start_ep, end_ep = target_page.split('-')
+                                page_start_episode = int(start_ep) - 1  # Convert to 0-based index
+                                page_end_episode = int(end_ep)
+                            except:
+                                page_start_episode = page_index * episodes_per_page
+                                page_end_episode = page_start_episode + episodes_in_current_page
+                        else:
+                            page_start_episode = page_index * episodes_per_page
+                            page_end_episode = page_start_episode + episodes_in_current_page
                         
                         print(f"  → Page covers episodes {page_start_episode + 1}-{page_end_episode}")
 
                         # **Tentukan episode mana yang perlu di-scrape di page ini**
                         episodes_to_scrape_in_page = []
                         
-                        if existing_anime:
-                            # Untuk existing anime, cari episode yang belum di-scrape
-                            for ep_index in range(episodes_in_current_page):
-                                global_ep_index = page_start_episode + ep_index
-                                if global_ep_index >= len(episodes_data) or episodes_data[global_ep_index].get('status') == 'error':
-                                    episodes_to_scrape_in_page.append(ep_index)
-                        else:
-                            # Untuk anime baru, ambil maksimal max_episodes_per_run
-                            episodes_to_scrape_in_page = list(range(min(episodes_in_current_page, max_episodes_per_run - total_scraped_in_this_run)))
+                        for ep_index in range(episodes_in_current_page):
+                            global_ep_index = page_start_episode + ep_index
+                            
+                            # Cek apakah episode ini perlu di-scrape
+                            if global_ep_index >= len(episodes_data) or episodes_data[global_ep_index].get('status') in ['error', 'pending']:
+                                episodes_to_scrape_in_page.append(ep_index)
 
                         if not episodes_to_scrape_in_page:
                             print(f"  → Semua episode di page {current_page} sudah di-scrape, skip")
@@ -353,7 +361,6 @@ async def scrape_kickass_anime():
                                 print(f"\n  --- Memproses Episode {global_ep_index + 1} (Page {current_page}) ---")
                                 
                                 # Refresh episode items
-                                await watch_page.wait_for_selector(".episode-item", timeout=10000)
                                 episode_items = await watch_page.query_selector_all(".episode-item")
                                 
                                 if local_ep_index >= len(episode_items):
@@ -372,45 +379,51 @@ async def scrape_kickass_anime():
                                 
                                 print(f"  - Mengklik episode {ep_number}...")
                                 
-                                # **LOGIKA UTAMA: Gunakan optimal sub/dub**
+                                # **Klik episode**
+                                clicked = False
+                                for attempt in range(3):
+                                    try:
+                                        await ep_item.scroll_into_view_if_needed()
+                                        await watch_page.wait_for_timeout(500)
+                                        await ep_item.click()
+                                        await watch_page.wait_for_timeout(3000)
+                                        
+                                        # Cek apakah berhasil navigasi ke episode
+                                        current_url = watch_page.url
+                                        if "/ep-" in current_url:
+                                            clicked = True
+                                            break
+                                    except Exception as click_error:
+                                        if attempt < 2:
+                                            await watch_page.wait_for_timeout(1000)
+                                
+                                if not clicked:
+                                    print(f"    × Gagal mengklik episode")
+                                    continue
+
+                                # **Cari iframe**
                                 iframe_src = None
                                 status = "error"
-                                all_qualities = {}
-                                used_subdub = optimal_subdub
                                 
-                                # Jika optimal sub/dub belum ditemukan, cari dulu
-                                if not optimal_subdub_found:
-                                    print(f"    → Mencari optimal sub/dub...")
-                                    optimal_subdub_found, optimal_subdub, iframe_src, status = await find_optimal_subdub(
-                                        watch_page, ep_item, available_subdub, optimal_subdub, subdub_selectors, first_episode_url
-                                    )
-                                    if status == "success":
-                                        all_qualities = {"Current": iframe_src}
-                                        used_subdub = optimal_subdub
-                                else:
-                                    # **Sudah ada optimal sub/dub, langsung gunakan**
-                                    print(f"    → Menggunakan optimal sub/dub: {optimal_subdub}")
-                                    
-                                    # Pastikan sub/dub optimal
-                                    await ensure_optimal_subdub(watch_page, optimal_subdub, subdub_selectors)
-                                    
-                                    # Klik episode
-                                    clicked = await click_episode(watch_page, ep_item, global_ep_index, first_episode_url)
-                                    
-                                    if clicked:
-                                        # Cari iframe
-                                        iframe_src, status = await find_iframe(watch_page)
-                                        if status == "success":
-                                            print(f"    ✓ Iframe ditemukan: {iframe_src[:50]}...")
-                                            all_qualities = {"Current": iframe_src}
-                                
+                                for iframe_attempt in range(3):
+                                    try:
+                                        iframe_element = await watch_page.query_selector("iframe.player:not([src=''])")
+                                        if iframe_element:
+                                            iframe_src = await iframe_element.get_attribute("src")
+                                            if iframe_src and iframe_src != "about:blank":
+                                                status = "success"
+                                                break
+                                        await watch_page.wait_for_timeout(1000)
+                                    except Exception:
+                                        await watch_page.wait_for_timeout(1000)
+
                                 # Simpan data episode
                                 episode_data = {
                                     "number": ep_number,
                                     "iframe": iframe_src or "Gagal diambil",
-                                    "subdub": used_subdub,
+                                    "subdub": optimal_subdub or "None",
                                     "status": status,
-                                    "all_qualities": all_qualities
+                                    "all_qualities": {"Current": iframe_src} if iframe_src else {}
                                 }
                                 
                                 # Update atau tambah episode data
@@ -429,9 +442,10 @@ async def scrape_kickass_anime():
                                     episodes_data[global_ep_index] = episode_data
                                 
                                 total_scraped_in_this_run += 1
+                                print(f"    ✓ Episode {ep_number} berhasil di-scrape")
                                 
                             except Exception as ep_e:
-                                print(f"Gagal memproses episode {global_ep_index + 1}: {type(ep_e).__name__}: {ep_e}")
+                                print(f"    × Gagal memproses episode {global_ep_index + 1}: {type(ep_e).__name__}: {ep_e}")
                                 
                                 episode_data = {
                                     "number": f"EP {global_ep_index + 1}",
@@ -455,7 +469,6 @@ async def scrape_kickass_anime():
                             break
 
                     # **STRUKTUR FINAL**
-                    total_episodes = len(available_pages) * episodes_per_page if available_pages else len(episodes_data)
                     anime_info = {
                         "title": title.strip(),
                         "synopsis": synopsis.strip(),
@@ -484,10 +497,8 @@ async def scrape_kickass_anime():
                     
                     print(f"✓ Data {title} {'diperbarui' if existing_anime else 'ditambahkan'} ({success_count}/{current_episode_count} berhasil, {current_episode_count - success_count} error)")
                     print(f"  → Progress: {current_episode_count}/{total_episodes} episode ({current_episode_count/total_episodes*100:.1f}%)")
-                    if optimal_subdub_found:
-                        print(f"  → Optimal sub/dub: {optimal_subdub}")
-                    if available_pages:
-                        print(f"  → Total pages: {len(available_pages)}")
+                    print(f"  → Optimal sub/dub: {optimal_subdub}")
+                    print(f"  → Total pages: {len(available_pages)}")
                     
                     # Tutup halaman
                     if watch_page and not watch_page.is_closed():
@@ -539,158 +550,6 @@ async def scrape_kickass_anime():
             print(f"Terjadi kesalahan fatal: {type(e).__name__}: {e}")
         finally:
             await browser.close()
-
-async def click_episode(watch_page, ep_item, ep_index, first_episode_url):
-    """Helper function untuk klik episode dengan retry mechanism"""
-    clicked = False
-    for attempt in range(3):
-        try:
-            await ep_item.scroll_into_view_if_needed()
-            await watch_page.wait_for_timeout(500)
-            await watch_page.evaluate("(element) => { element.click(); }", ep_item)
-            await watch_page.wait_for_timeout(3000)
-            
-            current_url = watch_page.url
-            if "/ep-" in current_url:
-                clicked = True
-                break
-            else:
-                if attempt < 2:
-                    await watch_page.wait_for_timeout(1000)
-        except Exception as click_error:
-            if attempt < 2:
-                await watch_page.wait_for_timeout(1000)
-            else:
-                print(f"    × Gagal mengklik episode: {click_error}")
-    
-    if not clicked and ep_index == 0:
-        try:
-            await watch_page.goto(first_episode_url, timeout=30000)
-            await watch_page.wait_for_selector(".player-container", timeout=10000)
-            clicked = True
-        except Exception:
-            pass
-    
-    return clicked
-
-async def find_iframe(watch_page):
-    """Helper function untuk mencari iframe dengan retry mechanism"""
-    iframe_src = None
-    status = "error"
-    
-    await watch_page.wait_for_timeout(3000)
-    for iframe_attempt in range(3):
-        try:
-            iframe_selectors = [
-                "iframe.player:not([src=''])",
-                "iframe[src*='krussdomi']",
-                "iframe[src*='player']",
-                "iframe"
-            ]
-            
-            for selector in iframe_selectors:
-                try:
-                    await watch_page.wait_for_selector(selector, timeout=2000)
-                    iframe_element = await watch_page.query_selector(selector)
-                    if iframe_element:
-                        iframe_src = await iframe_element.get_attribute("src")
-                        if iframe_src and iframe_src != "about:blank":
-                            break
-                except:
-                    continue
-            
-            if iframe_src and any(pattern in iframe_src for pattern in [
-                "krussdomi.com/cat-player/player", "vidstream", "type=hls", 
-                "cat-player/player", "player", "video"
-            ]):
-                status = "success"
-                break
-            elif iframe_attempt < 2:
-                await watch_page.wait_for_timeout(1000)
-        except Exception as iframe_error:
-            if iframe_attempt < 2:
-                await watch_page.wait_for_timeout(1000)
-    
-    return iframe_src, status
-
-async def find_optimal_subdub(watch_page, ep_item, available_subdub, optimal_subdub, subdub_selectors, first_episode_url):
-    """Cari optimal sub/dub untuk anime ini"""
-    for subdub_option in available_subdub:
-        print(f"    → Mencoba dengan: {subdub_option}")
-        
-        # Set sub/dub ke opsi ini
-        if subdub_option != optimal_subdub:
-            try:
-                # Cari dropdown sub/dub
-                subdub_dropdown = None
-                for selector in subdub_selectors:
-                    subdub_dropdown = await watch_page.query_selector(selector)
-                    if subdub_dropdown:
-                        break
-                
-                if subdub_dropdown:
-                    await subdub_dropdown.click()
-                    await watch_page.wait_for_timeout(1000)
-                    
-                    # Cari dan klik opsi yang diinginkan
-                    subdub_choice = await watch_page.query_selector(f".v-list-item .v-list-item__title:has-text('{subdub_option}')")
-                    if subdub_choice:
-                        await subdub_choice.click()
-                        await watch_page.wait_for_timeout(3000)
-                        optimal_subdub = subdub_option
-                        print(f"    ✓ Berhasil set ke: {subdub_option}")
-                    else:
-                        print(f"    ! Opsi {subdub_option} tidak ditemukan")
-                        await watch_page.keyboard.press("Escape")
-                        continue
-                else:
-                    print(f"    ! Dropdown sub/dub tidak ditemukan")
-                    continue
-            except Exception as subdub_error:
-                print(f"    ! Gagal set sub/dub ke {subdub_option}: {subdub_error}")
-                continue
-        
-        # Klik episode
-        clicked = await click_episode(watch_page, ep_item, 0, first_episode_url)
-        
-        if clicked:
-            # Cari iframe
-            iframe_src, status = await find_iframe(watch_page)
-            if status == "success":
-                print(f"    ✓ Iframe ditemukan dengan {subdub_option}")
-                return True, subdub_option, iframe_src, status
-        else:
-            print(f"    × Gagal klik episode dengan {subdub_option}")
-    
-    return False, optimal_subdub, None, "error"
-
-async def ensure_optimal_subdub(watch_page, optimal_subdub, subdub_selectors):
-    """Pastikan sub/dub sudah sesuai dengan optimal"""
-    try:
-        current_selection = await watch_page.query_selector(".v-select__selection.v-select__selection--comma")
-        if current_selection:
-            current_subdub = await current_selection.inner_text()
-            if current_subdub != optimal_subdub:
-                print(f"    → Mengatur sub/dub ke optimal: {optimal_subdub}")
-                subdub_dropdown = None
-                for selector in subdub_selectors:
-                    subdub_dropdown = await watch_page.query_selector(selector)
-                    if subdub_dropdown:
-                        break
-                
-                if subdub_dropdown:
-                    await subdub_dropdown.click()
-                    await watch_page.wait_for_timeout(1000)
-                    subdub_choice = await watch_page.query_selector(f".v-list-item .v-list-item__title:has-text('{optimal_subdub}')")
-                    if subdub_choice:
-                        await subdub_choice.click()
-                        await watch_page.wait_for_timeout(3000)
-                        print(f"    ✓ Berhasil set ke optimal sub/dub")
-                    else:
-                        print(f"    ! Opsi optimal {optimal_subdub} tidak ditemukan")
-                        await watch_page.keyboard.press("Escape")
-    except Exception as e:
-        print(f"    ! Gagal set optimal sub/dub: {e}")
 
 if __name__ == "__main__":
     asyncio.run(scrape_kickass_anime())
