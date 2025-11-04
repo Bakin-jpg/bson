@@ -390,7 +390,7 @@
         ],
         "poster": "https://kickass-anime.ru/image/poster/tales-of-herding-gods-9319-hq.webp",
         "url_detail": "https://kickass-anime.ru/tales-of-herding-gods-52c7",
-        "total_episodes": 40,
+        "total_episodes": 55,
         "episodes": [
             {
                 "number": "EP 01",
@@ -661,23 +661,68 @@
                 "all_qualities": {
                     "Current": "https://krussdomi.com/cat-player/player?id=ZmRlZDViNjYxZTEzZWExM2I4YjY3MTZmODNiZGY1MjQ6YzczNzc1MjZiYmFiOTU0NTg3MjE5N2IyMjZmMTllNDg&type=hls"
                 }
+            },
+            {
+                "number": "EP 31",
+                "iframe": "https://krussdomi.com/cat-player/player?id=YjE4OTU4ZWUxYzZjYzE3YzVkN2Y0YjYxM2MzMjI4N2U6ZWFiNjFkZDJmYjYxNjEzYTc1MjhhMmY4Nzg4N2MxMTA&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=YjE4OTU4ZWUxYzZjYzE3YzVkN2Y0YjYxM2MzMjI4N2U6ZWFiNjFkZDJmYjYxNjEzYTc1MjhhMmY4Nzg4N2MxMTA&type=hls"
+                }
+            },
+            {
+                "number": "EP 32",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZDlhYTk4NDY5NGNiYTEwMmI4NmQzZGY0ZmRkY2ViZmQ6NTU3MTc4MWMwMzBkODFhMDk3YzY0ZGZiMDNjYmM5ZGY&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZDlhYTk4NDY5NGNiYTEwMmI4NmQzZGY0ZmRkY2ViZmQ6NTU3MTc4MWMwMzBkODFhMDk3YzY0ZGZiMDNjYmM5ZGY&type=hls"
+                }
+            },
+            {
+                "number": "EP 33",
+                "iframe": "https://krussdomi.com/cat-player/player?id=OTQzNDcxNzEzYjBmNjA5NDU4NzdlMmRmY2YxNzc5YTE6NDE1YTUzY2NlMTU5NmM5NTA0MWRjYzU2ZTUxYmQzNTk&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=OTQzNDcxNzEzYjBmNjA5NDU4NzdlMmRmY2YxNzc5YTE6NDE1YTUzY2NlMTU5NmM5NTA0MWRjYzU2ZTUxYmQzNTk&type=hls"
+                }
+            },
+            {
+                "number": "EP 34",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ZWU0MTVkNDFlMTYzYWM4ZTYyOTUyODk0ZDFjNzgxY2M6OTIzZmZlMDgzM2Q2ZDcwYjIwY2E2MjcyYmQ1YjdlMzk&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ZWU0MTVkNDFlMTYzYWM4ZTYyOTUyODk0ZDFjNzgxY2M6OTIzZmZlMDgzM2Q2ZDcwYjIwY2E2MjcyYmQ1YjdlMzk&type=hls"
+                }
+            },
+            {
+                "number": "EP 35",
+                "iframe": "https://krussdomi.com/cat-player/player?id=ODg5NmVkMGFmMGZlYTQ5ZjU5YWJlNDA1Njk2NmNkMWY6MDdhZTdiYjY3YWVjMzIyNjA3YTg0Y2U3NWQxYjU4OGQ&type=hls",
+                "subdub": "Chinese (DUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=ODg5NmVkMGFmMGZlYTQ5ZjU5YWJlNDA1Njk2NmNkMWY6MDdhZTdiYjY3YWVjMzIyNjA3YTg0Y2U3NWQxYjU4OGQ&type=hls"
+                }
             }
         ],
         "available_subdub": [
-            "Chinese (DUB)"
-        ],
-        "optimal_subdub": "Chinese (DUB)",
-        "last_updated": 1762290275.1557722,
-        "available_pages": [
             "Home",
             "Trending",
             "Schedule",
             "Anime",
             "Popular Shows",
             "Random",
-            "Chinese (DUB)",
+            "Chinese (DUB)"
+        ],
+        "optimal_subdub": "Chinese (DUB)",
+        "last_updated": 1762293114.0454886,
+        "available_pages": [
             "01-55"
-        ]
+        ],
+        "episodes_per_page": 100
     },
     {
         "title": "Witch Watch",
@@ -704,7 +749,7 @@
         ],
         "poster": "https://kickass-anime.ru/image/poster/witch-watch-a628-hq.webp",
         "url_detail": "https://kickass-anime.ru/witch-watch-ec46",
-        "total_episodes": 50,
+        "total_episodes": 24,
         "episodes": [
             {
                 "number": "EP 01",
@@ -924,12 +969,6 @@
             }
         ],
         "available_subdub": [
-            "Japanese (SUB)",
-            "English (DUB)"
-        ],
-        "optimal_subdub": "Japanese (SUB)",
-        "last_updated": 1762290312.7174354,
-        "available_pages": [
             "Home",
             "Trending",
             "Schedule",
@@ -938,9 +977,14 @@
             "Random",
             "Japanese (SUB)",
             "Español (España)",
-            "English (DUB)",
+            "English (DUB)"
+        ],
+        "optimal_subdub": "English (DUB)",
+        "last_updated": 1762293119.7961,
+        "available_pages": [
             "01-24"
-        ]
+        ],
+        "episodes_per_page": 100
     },
     {
         "title": "My Status as an Assassin Obviously Exceeds the Hero's",
@@ -1245,6 +1289,1614 @@
         ],
         "optimal_subdub": "Japanese (SUB)",
         "last_updated": 1762270432.5596244
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
+    },
+    {
+        "title": "Isekai Quartet 3",
+        "synopsis": "Third season of Isekai Quartet.",
+        "genres": [
+            "Comedy",
+            "Fantasy",
+            "Isekai",
+            "Parody"
+        ],
+        "metadata": [
+            "TV",
+            "•",
+            "PG-13",
+            "•",
+            "Airing",
+            "•",
+            "2025",
+            "•",
+            "SUB"
+        ],
+        "poster": "https://kickass-anime.ru/image/poster/isekai-quartet-3-2289-hq.webp",
+        "url_detail": "https://kickass-anime.ru/isekai-quartet-3-b68d",
+        "total_episodes": 4,
+        "episodes": [
+            {
+                "number": "EP 01",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 02",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 03",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            },
+            {
+                "number": "EP 04",
+                "iframe": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP",
+                "subdub": "Japanese (SUB)",
+                "status": "success",
+                "all_qualities": {
+                    "Current": "https://krussdomi.com/cat-player/player?id=68ed16b1169c31976bf27f6b&source=vidstream&ln=ja-JP"
+                }
+            }
+        ],
+        "available_subdub": [
+            "Japanese (SUB)"
+        ],
+        "optimal_subdub": "Japanese (SUB)",
+        "last_updated": 1762270462.9911864
     },
     {
         "title": "Isekai Quartet 3",
