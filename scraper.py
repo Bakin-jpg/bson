@@ -29,12 +29,23 @@ async def scrape_kickass_anime():
             anime_items = await page.query_selector_all(".latest-update .row.mt-0 .show-item")
             print(f"Menemukan {len(anime_items)} item anime terbaru.")
 
-            # Load existing data jika ada
+            # Load existing data jika ada - DENGAN ERROR HANDLING
             existing_data = []
             if os.path.exists('anime_data.json'):
-                with open('anime_data.json', 'r', encoding='utf-8') as f:
-                    existing_data = json.load(f)
-                print(f"Data existing ditemukan: {len(existing_data)} anime")
+                try:
+                    with open('anime_data.json', 'r', encoding='utf-8') as f:
+                        file_content = f.read().strip()
+                        if file_content:  # Cek jika file tidak kosong
+                            existing_data = json.loads(file_content)
+                            print(f"Data existing ditemukan: {len(existing_data)} anime")
+                        else:
+                            print("File anime_data.json kosong, mulai dari nol")
+                except json.JSONDecodeError as e:
+                    print(f"Error membaca anime_data.json: {e}. Mulai dari nol")
+                except Exception as e:
+                    print(f"Error membaca file: {e}. Mulai dari nol")
+            else:
+                print("File anime_data.json tidak ditemukan, mulai dari nol")
 
             scraped_data = []
 
@@ -72,10 +83,14 @@ async def scrape_kickass_anime():
                     # Cek apakah anime sudah ada di data existing
                     existing_anime = None
                     anime_needs_update = False
+                    
+                    # Gunakan URL sebagai identifier untuk existing data
                     for anime in existing_data:
-                        if anime.get('url_detail') == full_detail_url:
+                        # Cek berdasarkan URL detail jika ada, atau berdasarkan judul
+                        anime_url = anime.get('url_detail', '') if 'url_detail' in anime else ''
+                        if anime_url == full_detail_url:
                             existing_anime = anime
-                            print(f"Anime sudah ada di data existing: {anime.get('judul')}")
+                            print(f"Anime sudah ada di data existing: {anime.get('title', 'Unknown')}")
                             
                             # Cek apakah perlu update
                             total_existing_episodes = len(anime.get('episodes', []))
@@ -356,6 +371,7 @@ async def scrape_kickass_anime():
                         print(f"Menemukan {total_episodes} episode")
                         
                         # Tentukan episode mana yang akan di-scrape
+                        start_episode = 0
                         if existing_anime:
                             # Lanjutkan dari episode terakhir yang berhasil di-scrape
                             existing_episodes = existing_anime.get('episodes', [])
@@ -367,6 +383,9 @@ async def scrape_kickass_anime():
                             
                             start_episode = last_successful_episode + 1
                             print(f"  → Lanjutkan dari episode {start_episode + 1} (terakhir berhasil: {last_successful_episode + 1})")
+                            
+                            # Gunakan episode yang sudah ada
+                            episodes_data = existing_episodes
                         else:
                             # Mulai dari awal untuk anime baru
                             start_episode = 0
@@ -377,14 +396,8 @@ async def scrape_kickass_anime():
                         
                         if episodes_to_scrape <= 0:
                             print("  → Semua episode sudah di-scrape, skip")
-                            # Gunakan data existing
-                            episodes_data = existing_anime.get('episodes', []) if existing_anime else []
                         else:
                             print(f"  → Akan scrape {episodes_to_scrape} episode (cicil)")
-                            
-                            # Jika ada existing episodes, gunakan yang sudah ada
-                            if existing_anime:
-                                episodes_data = existing_anime.get('episodes', [])
                             
                             # Scrape episode baru
                             for ep_index in range(start_episode, start_episode + episodes_to_scrape):
@@ -513,9 +526,10 @@ async def scrape_kickass_anime():
                         await detail_page.close()
 
             # Gabungkan data baru dengan data existing yang tidak di-update
-            updated_urls = [anime.get('url_detail', '') for anime in scraped_data if 'url_detail' in anime]
+            # Untuk data yang tidak di-update, tetap simpan
+            updated_titles = [anime.get('title') for anime in scraped_data]
             for existing_anime in existing_data:
-                if existing_anime.get('url_detail', '') not in updated_urls:
+                if existing_anime.get('title') not in updated_titles:
                     scraped_data.append(existing_anime)
 
             print("\n" + "="*50)
@@ -528,9 +542,13 @@ async def scrape_kickass_anime():
             print(f"Progress Episode: {total_scraped_episodes}/{total_expected_episodes} ({progress_percentage:.1f}%)")
             print("="*50)
                 
-            with open('anime_data.json', 'w', encoding='utf-8') as f:
-                json.dump(scraped_data, f, ensure_ascii=False, indent=4)
-            print("\nData berhasil disimpan ke anime_data.json")
+            # Simpan data dengan error handling
+            try:
+                with open('anime_data.json', 'w', encoding='utf-8') as f:
+                    json.dump(scraped_data, f, ensure_ascii=False, indent=4)
+                print("\nData berhasil disimpan ke anime_data.json")
+            except Exception as e:
+                print(f"Error menyimpan data: {e}")
 
         except Exception as e:
             print(f"Terjadi kesalahan fatal: {type(e).__name__}: {e}")
