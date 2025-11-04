@@ -159,35 +159,65 @@ async def scrape_kickass_anime():
                     await watch_page.goto(first_episode_url, timeout=90000)
                     await watch_page.wait_for_selector(".player-container", timeout=30000)
                     
-                    # **PERBAIKAN: Deteksi sub/dub yang tersedia dengan selector yang tepat**
-                    available_subdub = ["Japanese (SUB)"]  # Default
-                    current_subdub = "Japanese (SUB)"
+                    # **PERBAIKAN: Deteksi sub/dub yang tersedia dengan selector YANG BENAR**
+                    available_subdub = []
+                    current_subdub = "Japanese (SUB)"  # Default
                     
                     try:
-                        # Cari dropdown sub/dub yang benar berdasarkan inspect element
-                        subdub_selector = ".v-select .v-select__selection.v-select__selection--comma"
-                        subdub_element = await watch_page.query_selector(subdub_selector)
-                        if subdub_element:
-                            current_subdub = await subdub_element.inner_text()
-                            print(f"  → Sub/Dub saat ini: {current_subdub}")
+                        # Cari dropdown sub/dub yang benar - hanya yang berisi opsi bahasa
+                        subdub_selectors = [
+                            ".v-select:has(.v-label:has-text('Sub/Dub'))",
+                            ".v-select .v-select__selection.v-select__selection--comma",
+                            "select[name*='sub'], select[name*='dub']",
+                            "[aria-label*='Sub/Dub']"
+                        ]
+                        
+                        subdub_dropdown = None
+                        for selector in subdub_selectors:
+                            subdub_dropdown = await watch_page.query_selector(selector)
+                            if subdub_dropdown:
+                                break
+                        
+                        if subdub_dropdown:
+                            # Dapatkan sub/dub saat ini
+                            current_selection = await subdub_dropdown.query_selector(".v-select__selection.v-select__selection--comma")
+                            if current_selection:
+                                current_subdub = await current_selection.inner_text()
+                                print(f"  → Sub/Dub saat ini: {current_subdub}")
                             
-                            # Coba dapatkan opsi sub/dub yang tersedia
-                            await subdub_element.click()
+                            # Buka dropdown untuk mendapatkan opsi
+                            await subdub_dropdown.click()
                             await watch_page.wait_for_timeout(1000)
                             
-                            # Ambil opsi dari dropdown
-                            subdub_options = await watch_page.query_selector_all(".v-list-item .v-list-item__title")
-                            if subdub_options:
-                                available_subdub = [await option.inner_text() for option in subdub_options if await option.inner_text()]
-                                print(f"  → Tersedia sub/dub: {available_subdub}")
+                            # Ambil hanya opsi yang berisi bahasa (SUB/DUB)
+                            all_options = await watch_page.query_selector_all(".v-list-item .v-list-item__title")
+                            for option in all_options:
+                                option_text = await option.inner_text()
+                                # Filter hanya yang mengandung kata kunci bahasa
+                                if any(keyword in option_text.lower() for keyword in ['sub', 'dub', 'japanese', 'english', 'spanish', 'chinese', 'french', 'german']):
+                                    available_subdub.append(option_text)
+                            
+                            # Jika tidak ada yang terdeteksi, gunakan semua opsi kecuali menu navigasi
+                            if not available_subdub:
+                                for option in all_options:
+                                    option_text = await option.inner_text()
+                                    # Exclude menu navigasi
+                                    if option_text not in ['Home', 'Trending', 'Schedule', 'Anime', 'Popular Shows', 'Random', '']:
+                                        available_subdub.append(option_text)
+                            
+                            print(f"  → Tersedia sub/dub: {available_subdub}")
                             
                             # Tutup dropdown
                             await watch_page.keyboard.press("Escape")
                             await watch_page.wait_for_timeout(500)
+                        else:
+                            print("  → Dropdown sub/dub tidak ditemukan, menggunakan default")
+                            available_subdub = ["Japanese (SUB)", "English (DUB)"]
                     except Exception as e:
-                        print(f"  → Tidak bisa detect sub/dub options: {e}")
+                        print(f"  → Error detect sub/dub: {e}")
+                        available_subdub = ["Japanese (SUB)", "English (DUB)"]
 
-                    # **SISTEM YANG DIPERBAIKI: Sistem cicilan episode dengan fallback sub/dub yang SIMPLE**
+                    # **SISTEM YANG DIPERBAIKI: Sistem cicilan episode dengan fallback sub/dub**
                     episodes_data = []
                     try:
                         await watch_page.wait_for_selector(".episode-item", timeout=30000)
@@ -257,7 +287,7 @@ async def scrape_kickass_anime():
                         end_episode = start_episode + episodes_to_scrape_now
                         print(f"  → Akan scrape episode {start_episode + 1}-{end_episode}")
                         
-                        # **PERBAIKAN: Scrape episode yang ditentukan dengan LOGIKA SEDERHANA**
+                        # **PERBAIKAN: Scrape episode dengan LOGIKA FALLBACK yang BENAR**
                         for ep_index in range(start_episode, end_episode):
                             try:
                                 print(f"\n  --- Memproses Episode {ep_index + 1} ---")
@@ -375,7 +405,7 @@ async def scrape_kickass_anime():
                                                 print(f"    × Iframe tidak ditemukan: {iframe_error}")
                                                 iframe_src = "Iframe tidak ditemukan"
                                     
-                                    # **LOGIKA FALLBACK: Jika iframe tidak valid, coba ganti sub/dub**
+                                    # **LOGIKA FALLBACK: Jika iframe tidak valid DAN ada opsi sub/dub lain, coba ganti**
                                     if status != "success" and len(available_subdub) > 1:
                                         print(f"    → Iframe tidak valid, mencoba ganti sub/dub...")
                                         
@@ -386,11 +416,15 @@ async def scrape_kickass_anime():
                                             print(f"    → Mencoba sub/dub: {subdub_option}")
                                             
                                             try:
-                                                # Buka dropdown sub/dub
-                                                subdub_selector = ".v-select .v-select__selection.v-select__selection--comma"
-                                                subdub_element = await watch_page.query_selector(subdub_selector)
-                                                if subdub_element:
-                                                    await subdub_element.click()
+                                                # Cari dropdown sub/dub
+                                                subdub_dropdown = None
+                                                for selector in subdub_selectors:
+                                                    subdub_dropdown = await watch_page.query_selector(selector)
+                                                    if subdub_dropdown:
+                                                        break
+                                                
+                                                if subdub_dropdown:
+                                                    await subdub_dropdown.click()
                                                     await watch_page.wait_for_timeout(1000)
                                                     
                                                     # Cari dan klik opsi yang diinginkan
@@ -435,6 +469,8 @@ async def scrape_kickass_anime():
                                                     else:
                                                         print(f"    ! Opsi {subdub_option} tidak ditemukan")
                                                         await watch_page.keyboard.press("Escape")
+                                                else:
+                                                    print(f"    ! Dropdown sub/dub tidak ditemukan")
                                             except Exception as subdub_error:
                                                 print(f"    ! Gagal ganti sub/dub ke {subdub_option}: {subdub_error}")
                                 
