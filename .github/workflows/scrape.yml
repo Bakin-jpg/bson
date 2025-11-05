@@ -48,6 +48,7 @@ jobs:
           PYTHONUNBUFFERED: 1
         run: python scraper.py # Pastikan nama file ini sesuai dengan nama file skrip Anda
 
+      # --- PERBAIKAN DI MULAI DI SINI ---
       # Langkah 5: Melakukan commit dan push file hasil scrape (jika ada perubahan)
       - name: Commit and push if changed
         run: |
@@ -58,8 +59,19 @@ jobs:
           # Tambahkan file hasil scrape ke staging area
           git add anime_data.json
           
-          # Lakukan commit. "|| exit 0" mencegah workflow gagal jika tidak ada perubahan file.
-          git commit -m "Update anime data" || exit 0
-          
-          # Push perubahan ke repositori
-          git push
+          # Cek apakah ada perubahan yang akan di-commit
+          if ! git diff --staged --quiet; then
+            echo "Ada perubahan pada anime_data.json, melakukan pull, commit, dan push..."
+            # Tarik perubahan dari remote dengan rebase sebelum commit
+            # Ini akan menyatukan perubahan remote (jika ada) dengan perubahan lokal dari scraper
+            git pull --rebase
+            
+            # Lakukan commit
+            git commit -m "Update anime data"
+            
+            # Dorong perubahan ke repositori
+            git push
+          else
+            echo "Tidak ada perubahan pada anime_data.json, tidak perlu commit."
+          fi
+      # --- AKHIR PERBAIKAN ---
