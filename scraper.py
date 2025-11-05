@@ -59,7 +59,7 @@ async def scrape_kickass_anime():
 
                     # Ambil URL Poster dengan delay lebih panjang
                     await item.scroll_into_view_if_needed()
-                    await asyncio.sleep(1)  # Delay untuk pastiin load
+                    await asyncio.sleep(2)  # Delay untuk pastiin load
                     poster_url = "Tidak tersedia"
                     for attempt in range(5):  # Retry lebih banyak
                         poster_div = await item.query_selector(".v-image__image--cover")
@@ -113,7 +113,7 @@ async def scrape_kickass_anime():
                     # Buka halaman detail
                     detail_page = await context.new_page()
                     await detail_page.goto(full_detail_url, timeout=90000)
-                    await asyncio.sleep(2)  # Delay untuk load penuh
+                    await asyncio.sleep(3)  # Delay load penuh
                     await detail_page.wait_for_selector(".anime-info-card", timeout=30000)
                     
                     # Scrape informasi dasar
@@ -159,7 +159,7 @@ async def scrape_kickass_anime():
                     # Buka halaman watch untuk scrape iframe dan episode
                     watch_page = await context.new_page()
                     await watch_page.goto(first_episode_url, timeout=90000)
-                    await asyncio.sleep(2)  # Delay load
+                    await asyncio.sleep(3)  # Delay load
                     await watch_page.wait_for_selector(".player-container", timeout=30000)
                     
                     # **PERBAIKAN: Approach baru untuk deteksi dropdown**
@@ -197,7 +197,7 @@ async def scrape_kickass_anime():
                                 # Buka dropdown dengan delay
                                 await asyncio.sleep(1)
                                 await dropdown.click()
-                                await asyncio.sleep(2)  # Delay lebih panjang untuk load opsi
+                                await asyncio.sleep(3)  # Delay lebih panjang untuk load opsi
                                 
                                 # Ambil opsi dari dropdown yang aktif
                                 active_menu = await watch_page.query_selector(".v-menu__content.v-menu__content--active .v-list")
@@ -209,11 +209,10 @@ async def scrape_kickass_anime():
                                         if text and text.strip():
                                             option_texts.append(text.strip())
                                     
-                                    print(f"  → Opsi ditemukan (raw): {option_texts}")  # Debug lebih detail
+                                    print(f"  → Opsi ditemukan (raw): {option_texts}")
                                     
                                     # Klasifikasikan berdasarkan label
                                     if "Sub/Dub" in label_text:
-                                        # Filter hanya opsi bahasa
                                         valid_keywords = ['Japanese', 'English', 'Español', 'SUB', 'DUB']
                                         filtered = [opt for opt in option_texts if any(kw in opt for kw in valid_keywords)]
                                         available_subdub = filtered
@@ -223,21 +222,19 @@ async def scrape_kickass_anime():
                                         print(f"  → Sub/Dub optimal: {optimal_subdub}")
                                     
                                     elif "Page" in label_text:
-                                        # Filter format page dengan regex toleran spasi/extra
-                                        page_pattern = re.compile(r'^\s*(\d+-\d+)\s*$')  # Perbaikan regex
+                                        page_pattern = re.compile(r'^\s*(Page\s*)?(\d+-\d+)\s*$', re.IGNORECASE)
                                         filtered = []
                                         for opt in option_texts:
                                             match = page_pattern.match(opt)
                                             if match:
-                                                filtered.append(match.group(1))
-                                            elif re.match(r'^\d+-\d+$', opt.strip()):  # Fallback
-                                                filtered.append(opt.strip())
+                                                filtered.append(match.group(2))
                                         available_pages = filtered
-                                        current_page = current_value.strip().split()[-1] if ' ' in current_value else current_value  # Handle "Page 01-100"
-                                        print(f"  → Pages tersedia: {available_pages}")
+                                        current_page = current_value.strip()
+                                        if 'Page ' in current_page:
+                                            current_page = current_page.split('Page ')[1]
+                                        print(f"  → Pages tersedia: {filtered}")
                                         print(f"  → Page saat ini: {current_page}")
                                         
-                                        # Hitung total episodes dari page terakhir
                                         if available_pages:
                                             last_page = available_pages[-1]
                                             try:
@@ -262,7 +259,6 @@ async def scrape_kickass_anime():
                         if not available_subdub or not available_pages:
                             print("  → Mencoba approach alternatif...")
                             
-                            # Coba dapatkan informasi dari URL atau elemen lain
                             episode_items = await watch_page.query_selector_all(".episode-item")
                             total_episodes = len(episode_items)
                             print(f"  → Fallback: {total_episodes} episode ditemukan")
@@ -270,7 +266,7 @@ async def scrape_kickass_anime():
                             # Set default values
                             if not available_subdub:
                                 available_subdub = [current_subdub] if current_subdub else ["Japanese (SUB)"]
-                                optimal_subdub = optimal_subdub or "Japanese (SUB)"
+                                optimal_subdub = optimal_subdub or "Japanese (SUB)")
                             
                             if not available_pages:
                                 available_pages = [f"01-{total_episodes:02d}"] if total_episodes > 0 else ["01-05"]
@@ -289,7 +285,7 @@ async def scrape_kickass_anime():
                     # **PERBAIKAN UTAMA: LOGIKA UNTUK MENGAMBIL SEMUA EPISODE**
                     episodes_data = existing_anime.get('episodes', []) if existing_anime else []
                     total_scraped_in_this_run = 0
-                    max_episodes_per_run = 100  # Naikin batas
+                    max_episodes_per_run = 50  # Batas 50 episode
 
                     # **LOGIKA MULTI-PAGE YANG DIPERBAIKI**
                     if not available_pages:
@@ -325,7 +321,7 @@ async def scrape_kickass_anime():
                                 if page_dropdown:
                                     await asyncio.sleep(1)
                                     await page_dropdown.click()
-                                    await asyncio.sleep(2)
+                                    await asyncio.sleep(3)
                                     
                                     # Cari dan klik page yang diinginkan
                                     active_menu = await watch_page.query_selector(".v-menu__content.v-menu__content--active .v-list")
@@ -416,7 +412,7 @@ async def scrape_kickass_anime():
                         if current_page != current_episode_page:
                             print(f"  → Navigasi ke page: {current_episode_page}")
                             try:
-                                # Sama seperti atas, tapi reuse code jika perlu
+                                # Sama seperti atas, reuse code jika perlu
                                 page_dropdown = None
                                 all_dropdowns = await watch_page.query_selector_all(".episode-list .v-select")
                                 for dropdown in all_dropdowns:
@@ -429,7 +425,7 @@ async def scrape_kickass_anime():
                                 if page_dropdown:
                                     await asyncio.sleep(1)
                                     await page_dropdown.click()
-                                    await asyncio.sleep(2)
+                                    await asyncio.sleep(3)
                                     
                                     active_menu = await watch_page.query_selector(".v-menu__content.v-menu__content--active .v-list")
                                     if active_menu:
@@ -526,7 +522,7 @@ async def scrape_kickass_anime():
                                         if subdub_dropdown:
                                             await asyncio.sleep(1)
                                             await subdub_dropdown.click()
-                                            await asyncio.sleep(2)
+                                            await asyncio.sleep(3)
                                             
                                             active_menu = await watch_page.query_selector(".v-menu__content.v-menu__content--active .v-list")
                                             if active_menu:
@@ -540,7 +536,7 @@ async def scrape_kickass_anime():
                                                 
                                                 if subdub_option:
                                                     await subdub_option.click()
-                                                    await asyncio.sleep(4)  # Delay setelah switch
+                                                    await asyncio.sleep(7)  # Delay lebih panjang setelah switch (handle URL change)
                                                     current_subdub = subdub
                                                     optimal_subdub = subdub  # Update optimal
                                                     print(f"    ✓ Berhasil switch ke {subdub}")
@@ -557,7 +553,27 @@ async def scrape_kickass_anime():
                                         print(f"    ! Gagal switch sub/dub: {switch_error}")
                                         continue
 
-                                # Coba ambil iframe setelah switch (atau di current)
+                                # Perbaikan: Setelah switch, refresh episode items dan klik ulang episode berdasarkan ep_number (handle URL change)
+                                await asyncio.sleep(3)  # Delay setelah switch
+                                episode_items = await watch_page.query_selector_all(".episode-item")
+                                found_ep_item = None
+                                for item in episode_items:
+                                    badge = await item.query_selector(".episode-badge .v-chip__content")
+                                    if badge and await badge.inner_text() == ep_number:
+                                        found_ep_item = item
+                                        break
+                                
+                                if found_ep_item:
+                                    print(f"    → Re-click episode {ep_number} setelah switch (handle URL change)")
+                                    await found_ep_item.scroll_into_view_if_needed()
+                                    await asyncio.sleep(1)
+                                    await found_ep_item.click()
+                                    await asyncio.sleep(5)  # Delay load iframe baru
+                                else:
+                                    print(f"    ! Episode {ep_number} tidak ditemukan setelah switch, skip")
+                                    continue
+
+                                # Coba ambil iframe
                                 for iframe_attempt in range(5):
                                     try:
                                         await asyncio.sleep(2)  # Delay per attempt
@@ -589,16 +605,7 @@ async def scrape_kickass_anime():
                             if global_ep_index < len(episodes_data):
                                 episodes_data[global_ep_index] = episode_data
                             else:
-                                # Extend list jika perlu
-                                while len(episodes_data) <= global_ep_index:
-                                    episodes_data.append({
-                                        "number": f"EP {len(episodes_data) + 1}",
-                                        "iframe": "Belum di-scrape",
-                                        "subdub": "None",
-                                        "status": "pending",
-                                        "all_qualities": {}
-                                    })
-                                episodes_data[global_ep_index] = episode_data
+                                episodes_data.append(episode_data)
                             
                             total_scraped_in_this_run += 1
                             if status == "success":
@@ -649,12 +656,11 @@ async def scrape_kickass_anime():
                     else:
                         scraped_data.append(anime_info)
                     
-                    success_count = sum(1 for ep in episodes_data if ep.get('status') == 'success')
-                    error_count = sum(1 for ep in episodes_data if ep.get('status') == 'error')
-                    current_episode_count = len(episodes_data)
+                    success_count = sum(1 for ep in episodes_data if ep.get('status') in ['success'])
+                    current_episode_count = len([ep for ep in episodes_data if ep.get('status') != 'pending'])
                     
-                    print(f"✓ Data {title} {'diperbarui' if existing_anime else 'ditambahkan'} ({success_count}/{current_episode_count} berhasil, {error_count} error)")
-                    print(f"  → Progress: {current_episode_count}/{total_episodes} episode ({current_episode_count/total_episodes*100:.1f}% jika total akurat)")
+                    print(f"✓ Data {title} {'diperbarui' if existing_anime else 'ditambahkan'} ({success_count}/{current_episode_count} berhasil, {current_episode_count - success_count} error)")
+                    print(f"  → Progress: {current_episode_count}/{total_episodes} episode ({current_episode_count/total_episodes*100:.1f}%)")
                     print(f"  → Optimal sub/dub: {optimal_subdub}")
                     print(f"  → Total pages: {len(available_pages)}")
                     
@@ -690,7 +696,7 @@ async def scrape_kickass_anime():
             # Hitung statistik
             total_scraped_episodes = sum(len(anime.get('episodes', [])) for anime in scraped_data)
             total_expected_episodes = sum(anime.get('total_episodes', 0) for anime in scraped_data)
-            successful_episodes = sum(1 for anime in scraped_data for ep in anime.get('episodes', []) if ep.get('status') == 'success')
+            successful_episodes = sum(1 for anime in scraped_data for ep in anime.get('episodes', []) if ep.get('status') in ['success'])
             
             progress_percentage = (total_scraped_episodes / total_expected_episodes * 100) if total_expected_episodes > 0 else 0
             success_rate = (successful_episodes / total_scraped_episodes * 100) if total_scraped_episodes > 0 else 0
