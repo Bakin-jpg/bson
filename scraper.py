@@ -266,7 +266,7 @@ async def scrape_kickass_anime():
                             # Set default values
                             if not available_subdub:
                                 available_subdub = [current_subdub] if current_subdub else ["Japanese (SUB)"]
-                                optimal_subdub = optimal_subdub or "Japanese (SUB)")
+                                optimal_subdub = optimal_subdub or "Japanese (SUB)"
                             
                             if not available_pages:
                                 available_pages = [f"01-{total_episodes:02d}"] if total_episodes > 0 else ["01-05"]
