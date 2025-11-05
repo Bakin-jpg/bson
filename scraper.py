@@ -497,6 +497,22 @@ async def scrape_kickass_anime():
                     return False
 
             # ============================================================
+            # FUNGSI UNTUK MENDAPATKAN EPISODE ITEMS DENGAN REFRESH
+            # ============================================================
+            
+            async def get_fresh_episode_items(watch_page):
+                """Mendapatkan episode items yang fresh (tidak stale)"""
+                try:
+                    await asyncio.sleep(2)
+                    await watch_page.wait_for_selector(".episode-item", timeout=10000)
+                    episode_items = await watch_page.query_selector_all(".episode-item")
+                    print(f"  → Refreshed episode items: {len(episode_items)} episodes")
+                    return episode_items
+                except Exception as e:
+                    print(f"  ! Gagal mendapatkan fresh episode items: {e}")
+                    return []
+
+            # ============================================================
             # FUNGSI UNTUK SCRAPE EPISODE DENGAN MULTIPLE PAGES SUPPORT
             # ============================================================
             
@@ -558,16 +574,12 @@ async def scrape_kickass_anime():
                             print(f"  ! Gagal navigasi ke page {target_page}, skip page ini")
                             continue
                     
-                    # **Tunggu episode items load**
-                    try:
-                        await asyncio.sleep(2)
-                        await watch_page.wait_for_selector(".episode-item", timeout=15000)
-                    except Exception as e:
-                        print(f"  ! Timeout menunggu episode items: {e}")
+                    # **PERBAIKAN PENTING: Dapatkan FRESH episode items setiap page**
+                    episode_items = await get_fresh_episode_items(watch_page)
+                    if not episode_items:
+                        print(f"  ! Tidak ada episode items di page {target_page}, skip")
                         continue
                     
-                    # **Dapatkan episode items di page ini**
-                    episode_items = await watch_page.query_selector_all(".episode-item")
                     episodes_in_current_page = len(episode_items)
                     print(f"  → Found {episodes_in_current_page} episodes in page {target_page}")
                     
@@ -604,6 +616,8 @@ async def scrape_kickass_anime():
                         try:
                             print(f"\n  --- Memproses Episode {global_ep_index + 1} (Page {target_page}) ---")
                             
+                            # **PERBAIKAN PENTING: Dapatkan FRESH episode items setiap episode**
+                            episode_items = await get_fresh_episode_items(watch_page)
                             if local_ep_index >= len(episode_items):
                                 print(f"    × Episode tidak ditemukan di page ini")
                                 continue
